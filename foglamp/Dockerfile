@@ -29,8 +29,7 @@ RUN apt-get install -y rsyslog
 WORKDIR /usr/local/foglamp
 
 # Add a script that will start up FogLAMP (first starting rsyslog, which must be running first)
-#ADD foglamp.sh foglamp.sh
-RUn echo "#!/bin/bash \nservice rsyslog start \nbin/foglamp start \ntail -f /var/log/syslog" > foglamp.sh 
+RUN echo "#!/bin/bash \nservice rsyslog start \nbin/foglamp start \ntail -f /var/log/syslog" > foglamp.sh 
 
 # Apply permissions to the FogLAMP startup script
 RUN chmod 777 /usr/local/foglamp/foglamp.sh
